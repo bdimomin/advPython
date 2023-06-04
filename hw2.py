@@ -1,23 +1,17 @@
 class Vehicle():
+    fare =100
     def __init__(self,seatingCapacity):
         self.seatingCapacity=seatingCapacity
 
     def fareCalculation(self):
-        return f"Fare is : {self.seatingCapacity*100}"
+        return f"Fare is : {self.seatingCapacity*self.fare}"
 
 
 class Bus(Vehicle):
-
-    def __init__(self, seatingCapacity):
-         super().__init__(seatingCapacity)
-   
-    def fareCalculation(self):
-        return f"BUS Fare is : {(self.seatingCapacity*100)+(self.seatingCapacity*100)*.1}"
-      
+    fare = 110
     
+
 vehicle1 = Vehicle(40)
-print(vehicle1.fareCalculation())
-
-    
 bus1 = Bus(40)
+print(vehicle1.fareCalculation())
 print(bus1.fareCalculation())
