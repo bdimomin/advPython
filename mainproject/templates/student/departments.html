@@ -1,0 +1,28 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">SL</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for department in content %}
+
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{department.name}}</td>
+        <td><a class="btn btn-primary" href="{% url 'department_update' department.id %}">Edit</a>   
+          <a class="btn btn-danger" href="{% url 'department_delete' department.id %}"> Delete </a></td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+{% endblock content %}
