@@ -1,0 +1,26 @@
+{% extends 'student/base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="row">
+       <div class="col-md-8">{{form.department|as_crispy_field}} </div>
+    
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4"><button type="Submit" class="btn btn-success btn-block btn-lg">Save Department</button> </div>
+       
+        <div class="col-md-4"><a href="{% url 'department_list' %}" class="btn btn-secondary btn-block btn-lg">Back to List</a></div>
+        <div class="col-md-4"></div>
+    </div>
+
+    
+</form>
+
+{% endblock content %}

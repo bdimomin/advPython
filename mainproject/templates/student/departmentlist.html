@@ -1,0 +1,30 @@
+{% extends 'student/base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">SL</th>
+        <th scope="col">Department Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for department in departments %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{department.department}}</td>
+        <td><a href="{% url 'department_edit' department.id %}" class="btn btn-primary">Edit</a></td>
+        <td><a href="{% url 'department_delete' department.id %}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+{% endblock content %}
