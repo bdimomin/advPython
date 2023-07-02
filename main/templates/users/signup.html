@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Registration{% endblock title %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+
+   <div class="row">
+    <div class="col-md-6">
+        {{form.username|as_crispy_field}}
+    </div>
+    <div class="col-md-6">
+        {{form.email|as_crispy_field}}
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+        {{form.password1|as_crispy_field}}
+    </div>
+    <div class="col-md-6">
+        {{form.password2|as_crispy_field}}
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"> <button type="submit" class="btn btn-block btn-primary">Submit</button> </div>
+    <div class="col-md-4"></div>
+   </div>
+</form>
+
+{% endblock content %}
