@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Insert | Student Management System{% endblock title %}
+
+
+
+{% block content %}
+    
+<br>
+<br>
+<div class="container">
+  
+    {% if student %}
+        
+        <form method="POST">
+
+            <div class="row">
+
+            {% csrf_token %}
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="{{student.name}}" value="{{student.name}}">
+                </div>
+            
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="phone">Phone: </label>
+                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="{{student.phone}}" value="{{student.phone}}">
+                </div>
+            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="{{student.email}}" value="{{student.email}}">
+                </div>
+            
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="department">Department: </label>
+                    <select id="department" class="form-control" name="department">
+                       
+
+                        {% if department %}
+                        <option value="{{ department.id }}" Selected>{{ department.department_name }}</option>
+                        {%endif%}
+
+                        {% if departments%}
+
+                            {% for department in departments %}
+                            <option value="{{ department.id }}">{{ department.department_name }}</option>
+
+                            {% endfor %}
+                        {%endif%}
+                      </select>
+                </div>
+            
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Student</button>
+        </form>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

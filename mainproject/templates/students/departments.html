@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Department List | Student Management System{% endblock title %}
+
+
+{% block content %}
+<br>
+<br>
+{% if departments %}
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">SL</th>
+        <th scope="col">Department Name</th>
+        <th scope="col">Action</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for department in departments %}
+
+      <tr>
+        <th scope="row">   {{ forloop.counter }}</th>
+        <td>{{ department.department_name }}</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+     
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+{%endif%}
+{% endblock content %}
